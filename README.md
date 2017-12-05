@@ -6,10 +6,34 @@
 <p>第三步：根据需求选择加入队列，还是发送邮件</p>
 <pre>加入队列：
 $object->joinQueue($param);
+
+</pre>
+<pre>
+参数示例:
+[
+    'key' => 'reg_email', //redis里的key
+    'value' => [
+        '996674366@qq.com', //收件人
+        'liuzhongsheng@xxx.cn'//收件人
+    ]
+]
 </pre>
 
 <pre>发送邮件：
 $object->sandEmail($param);
+</pre>
+<pre>
+参数示例:
+[
+    'key'=>[
+        'key'=>'要查询的key',
+        'mode'=>'开启阻塞模式为block',
+        'timeOut'=>'如果mode为block，可以传入超时秒数，默认100秒'
+    ],
+    'title'=>'测试邮件标题',
+    'subject'=>'测试邮件主题',
+    'content'=>'测试邮件内容'
+ ]
 </pre>
 <h3>配置说明<span>(参考config.php)</span>：</h3>
 
